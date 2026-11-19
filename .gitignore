@@ -1,0 +1,13 @@
+MAGFiLO_1.0_Kaggle_2026/
+work/
+submissions/
+submission_reproduced.csv
+__pycache__/
+*.pyc
+.pytest_cache/
+.ipynb_checkpoints/
+*.aux
+*.bbl
+*.blg
+*.log
+*.out
