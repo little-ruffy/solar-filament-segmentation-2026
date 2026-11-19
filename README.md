@@ -12,7 +12,8 @@ Official source code, reproducible zero-retraining inference pipeline, interacti
 | **Public Leaderboard PQ** | **`0.41`** | 2-decimal rounded Public LB (`#1` honest pixel-disjoint tier) |
 | **5-Fold OOF PQ (707 disks, 1,154 records)** | **`0.4683`** | `SQ = 0.6883`, `RQ = 0.6804`, `TP = 5,336`, `FP = 2,150` |
 | **Strict Nested LOFO PQ** | **`0.4676`** | Zero hyperparameter leakage across outer folds |
-| **Human Inter-Annotator Baseline PQ** | `0.3399` | `SQ = 0.6337`, `RQ = 0.5364` across 1,196 ordered human pairs |
+| **Semantic Micro-Dice / Micro-IoU** | **`0.7017` / `0.5405`** | Per-record Dice `0.6721 ± 0.1557`, IoU `0.5238 ± 0.1524` |
+| **Multi-Annotator PQ (`296` $R \ge 2$ disks)** | **`0.4681` vs. `0.3399`** | `+0.1282` (`+37.7%` relative) above human pairwise agreement |
 | **Pixel Overlap / Many-to-One Violations** | **`0`** | Guaranteed `cover.max() <= 1` (`0` overlapping pixels across all 1,196 test masks) |
 
 ---
@@ -118,7 +119,8 @@ python tests/test_stage2_geometry.py
 │   └── demo_inference_pipeline.ipynb     # Complete end-to-end zero-retraining demo notebook
 ├── scripts/
 │   ├── download_weights.py               # Public Hugging Face Hub weights downloader + verifier
-│   └── compute_report_metrics_and_figures.py
+│   ├── compute_report_metrics_and_figures.py
+│   └── upgrade_report_artifacts.py       # Paired bootstrap CIs, 1:1 zooms, semantic IoU & figures
 ├── src/
 │   ├── config.py                         # Paths, constants, and GONG station metadata
 │   ├── metrics.py                        # Exact C-accelerated Panoptic Quality evaluator

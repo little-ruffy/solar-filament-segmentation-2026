@@ -1,0 +1,2 @@
+# Preserve exact byte-for-byte SHA-256 of Kaggle submission.csv (ref: 58314458)
+submission/submission.csv -text
